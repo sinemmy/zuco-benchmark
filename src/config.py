@@ -20,7 +20,7 @@ Combined: ["sent_gaze_eeg_means", "sent_gaze_sacc_eeg_means"]
 """
 
 # Submission Configuration
-create_submission = True
+create_submission = False  # Set to True to create a submission file
 
 
 # --------------------------- Other configurations --------------------------------

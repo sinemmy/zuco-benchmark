@@ -16,3 +16,7 @@ data/
 features/
 predictions/
 bootstrapping*
+
+src/features/*
+src/features.zip
+src/portable_data/*
