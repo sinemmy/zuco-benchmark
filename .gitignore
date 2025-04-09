@@ -19,4 +19,12 @@ bootstrapping*
 
 src/features/*
 src/features.zip
+src/portable_data
 src/portable_data/*
+src/obsolete
+src/obsolete/*
+src/portable_zucco_data
+src/portable_zucco_data/*
+
+.DS_Store*
+src/.DS_Store*
