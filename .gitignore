@@ -26,5 +26,8 @@ src/obsolete/*
 src/portable_zucco_data
 src/portable_zucco_data/*
 
+portable_data
+portable_data/*
+
 .DS_Store*
 src/.DS_Store*

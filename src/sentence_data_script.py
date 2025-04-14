@@ -12,14 +12,12 @@ def extract_sentence_content():
     os.makedirs("../portable_data", exist_ok=True)
     
     # Define subjects and directories based on config
-    train_subjects = ['YAC', 'YAG', 'YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YIS', 'YLS', 'YMD', 'YRK', 'YRP', 'YSD', 'YSL', 'YTL']
-    train_dir= "../data/train/"
+    subjects = ['YAC', 'YAG', 'YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YIS', 'YLS', 'YMD', 'YRK', 'YRP', 'YSD', 'YSL', 'YTL']
+    rootdir= "../data/train/"
 
-    
 
     # Dictionary to store sentence content
     sentence_content = {}
-
 
 
     for subject in subjects:
