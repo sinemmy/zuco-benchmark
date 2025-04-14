@@ -27,6 +27,9 @@ Contextual information (sentence, position)
 
 This structure should give you everything you need for the linear mapping between EEG features and language model embeddings.
 
+to run: 
+python src/extract_zuco_data.py data/train/ --output-dir portable_data
+
 """
 import os
 import numpy as np
