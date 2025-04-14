@@ -1,6 +1,6 @@
 """
 It's really hard to figure out the structure of the .mat files from the ZuCo dataset.
-This script explores the structure of .mat files from the ZuCo dataset.
+This script (1/2) explores the structure of .mat files from the ZuCo dataset.
 It attempts to load the files using both scipy and h5py, and provides detailed information about the contents.
 """
 
@@ -191,7 +191,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         data_dir = sys.argv[1]
     else:
-        data_dir = "../data/train/"  # Use current directory as default
+        data_dir = "../data/train/example_mat"  # Use current directory as default
     
     # Create an output file for logging
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
