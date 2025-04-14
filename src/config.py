@@ -5,10 +5,13 @@ dataset = "zuco2"
 rootdir = "../data/train/"
 heldout_dir = "../data/test"
 heldout_subjects = ["XBB", "XDT", "XLS", "XPB", "XSE", "XTR", "XWS", "XAH", "XBD", "XSS"]
-subjects = ['YAC', 'YAG', 'YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YIS', 'YLS', 'YMD', 'YRK', 'YRP', 'YSD', 'YSL', 'YTL']  # exclude YMH,  - YRH, YMS
+# subjects = ['YAC', 'YAG', 'YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YIS', 'YLS', 'YMD', 'YRK', 'YRP', 'YSD', 'YSL', 'YTL']  # exclude YMH,  - YRH, YMS # for LLM
+
+subjects = ['YAC'] # for topo plots
 
 # Feature Set Configuration: Choose from various feature sets for the benchmark
-feature_sets = ["electrode_features_theta", "electrode_features_alpha", "electrode_features_beta", "electrode_features_gamma", "electrode_features_all", "sent_gaze_sacc", "sent_gaze_sacc_eeg_means","fixation_number" ] # default
+# feature_sets = ["electrode_features_theta", "electrode_features_alpha", "electrode_features_beta", "electrode_features_gamma", "electrode_features_all", "sent_gaze_sacc", "sent_gaze_sacc_eeg_means","fixation_number" ] # for llm
+feature_sets = ["electrode_features_all", "sent_gaze_sacc", "sent_gaze_sacc_eeg_means" ] # for topo plots
 
 #feature_sets = ["electrode_features_theta", "electrode_features_alpha", "electrode_features_beta", "electrode_features_gamma", "electrode_features_all"]  
 # # default:
