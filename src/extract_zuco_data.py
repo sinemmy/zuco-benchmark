@@ -42,7 +42,7 @@ class ZucoDataExtractor:
     A class to extract sentence and word-level EEG data from the ZuCo dataset,
     structured to facilitate mapping with language model embeddings.
     
-    This version properly handles the h5py group structure for word data.
+    This version handles both NR and TSR data formats.
     """
     
     def __init__(self, data_dir, output_dir=None):
@@ -121,7 +121,7 @@ class ZucoDataExtractor:
     
     def get_words_from_sentence(self, h5file, sentence_idx):
         """
-        Get words from a sentence using the proper group structure.
+        Get words from a sentence, handling both group and dataset structures.
         
         Args:
             h5file: h5py file object
@@ -133,47 +133,79 @@ class ZucoDataExtractor:
         words = []
         
         try:
-            # Get the reference to the word group
+            # Get the reference to the word data
             word_ref = h5file['sentenceData']['word'][sentence_idx, 0]
             
             if isinstance(word_ref, h5py.Reference):
-                word_group = h5file[word_ref]
+                word_data = h5file[word_ref]
                 
-                # Get all keys in the word group
-                word_keys = list(word_group.keys())
-                
-                # Sort keys if they are numeric
-                try:
-                    # If keys are numeric, sort them numerically
-                    word_keys = sorted(word_keys, key=lambda x: int(x))
-                except:
-                    # If keys can't be sorted numerically, use alphabetical order
-                    word_keys = sorted(word_keys)
-                
-                # Extract words in order
-                for key in word_keys:
+                # Handle group structure (for NR data)
+                if isinstance(word_data, h5py.Group):
+                    # Get all keys in the word group
                     try:
-                        word_ref = word_group[key]
-                        if isinstance(word_ref, h5py.Reference):
-                            word_text = self.load_matlab_string(h5file[word_ref])
-                            words.append(word_text)
-                        else:
-                            words.append("")
+                        word_keys = list(word_data.keys())
+                        
+                        # Sort keys if they are numeric
+                        try:
+                            # If keys are numeric, sort them numerically
+                            word_keys = sorted(word_keys, key=lambda x: int(x))
+                        except:
+                            # If keys can't be sorted numerically, use alphabetical order
+                            word_keys = sorted(word_keys)
+                        
+                        # Extract words in order
+                        for key in word_keys:
+                            try:
+                                word_ref = word_data[key]
+                                if isinstance(word_ref, h5py.Reference):
+                                    word_text = self.load_matlab_string(h5file[word_ref])
+                                    words.append(word_text)
+                                else:
+                                    words.append("")
+                            except Exception as e:
+                                print(f"Error extracting word with key {key}: {e}")
+                                words.append("")
                     except Exception as e:
-                        print(f"Error extracting word with key {key}: {e}")
-                        words.append("")
+                        print(f"Error processing word group: {e}")
+                
+                # Handle dataset structure (for TSR data)
+                elif isinstance(word_data, h5py.Dataset):
+                    try:
+                        # Get the number of words in this dataset
+                        word_count = word_data.shape[0] if hasattr(word_data, 'shape') else 0
+                        
+                        # Extract each word
+                        for i in range(word_count):
+                            try:
+                                word_item_ref = word_data[i, 0]
+                                if isinstance(word_item_ref, h5py.Reference):
+                                    word_item = h5file[word_item_ref]
+                                    word_text = self.load_matlab_string(word_item)
+                                    words.append(word_text)
+                                else:
+                                    words.append("")
+                            except Exception as e:
+                                print(f"Error extracting word at index {i}: {e}")
+                                words.append("")
+                    except Exception as e:
+                        print(f"Error processing word dataset: {e}")
+                
+                else:
+                    print(f"Unknown word data type: {type(word_data)}")
+        
         except Exception as e:
             print(f"Error getting words for sentence {sentence_idx}: {e}")
         
         return words
     
-    def get_word_boundaries(self, h5file, sentence_idx):
+    def get_word_boundaries(self, h5file, sentence_idx, word_count):
         """
         Get word boundaries for a sentence.
         
         Args:
             h5file: h5py file object
             sentence_idx: Index of the sentence
+            word_count: Number of words in the sentence
             
         Returns:
             numpy.ndarray: Word boundaries array or None if not available
@@ -182,12 +214,104 @@ class ZucoDataExtractor:
             if 'wordbounds' in h5file['sentenceData']:
                 wordbounds_ref = h5file['sentenceData']['wordbounds'][sentence_idx, 0]
                 if isinstance(wordbounds_ref, h5py.Reference):
-                    wordbounds = h5file[wordbounds_ref][()]
-                    return np.asarray(wordbounds)
+                    wordbounds_data = h5file[wordbounds_ref][()]
+                    wordbounds = np.asarray(wordbounds_data)
+                    
+                    # For TSR data, there might be a mismatch between frequency data size and actual words
+                    # So we just return what we have and handle alignment elsewhere
+                    return wordbounds
         except Exception as e:
             print(f"Error getting word boundaries for sentence {sentence_idx}: {e}")
         
         return None
+
+    def get_frequency_band_data(self, h5file, sentence_idx, word_idx, field):
+        """
+        Get frequency band data for a specific word.
+        
+        Args:
+            h5file: h5py file object
+            sentence_idx: Index of the sentence
+            word_idx: Index of the word
+            field: Frequency band field name
+            
+        Returns:
+            numpy.ndarray: Frequency band data or None if not available
+        """
+        try:
+            if field in h5file['sentenceData']:
+                field_ref = h5file['sentenceData'][field][sentence_idx, 0]
+                if isinstance(field_ref, h5py.Reference):
+                    field_data = h5file[field_ref][()]
+                    field_data_arr = np.asarray(field_data)
+                    
+                    # Check if we have data for this word
+                    if word_idx < len(field_data_arr):
+                        word_data = field_data_arr[word_idx]
+                        return np.asarray(word_data).astype(np.float32)
+        except Exception as e:
+            # Silently fail - we'll just skip this feature
+            print(f"Error getting {field} data for sentence {sentence_idx}, word {word_idx}: {e}")
+        
+        return None
+
+    # def get_word_boundaries(self, h5file, sentence_idx, word_count):
+    #     """
+    #     Get word boundaries for a sentence.
+        
+    #     Args:
+    #         h5file: h5py file object
+    #         sentence_idx: Index of the sentence
+    #         word_count: Number of words in the sentence
+            
+    #     Returns:
+    #         numpy.ndarray: Word boundaries array or None if not available
+    #     """
+    #     try:
+    #         if 'wordbounds' in h5file['sentenceData']:
+    #             wordbounds_ref = h5file['sentenceData']['wordbounds'][sentence_idx, 0]
+    #             if isinstance(wordbounds_ref, h5py.Reference):
+    #                 wordbounds_data = h5file[wordbounds_ref][()]
+    #                 wordbounds = np.asarray(wordbounds_data)
+                    
+    #                 # Ensure we have boundaries for all words
+    #                 if len(wordbounds) >= word_count:
+    #                     return wordbounds
+    #                 else:
+    #                     print(f"Warning: Not enough word boundaries for sentence {sentence_idx}. Got {len(wordbounds)}, need {word_count}")
+    #     except Exception as e:
+    #         print(f"Error getting word boundaries for sentence {sentence_idx}: {e}")
+        
+    #     return None
+    
+    # def get_frequency_band_data(self, h5file, sentence_idx, word_idx, field):
+    #     """
+    #     Get frequency band data for a specific word.
+        
+    #     Args:
+    #         h5file: h5py file object
+    #         sentence_idx: Index of the sentence
+    #         word_idx: Index of the word
+    #         field: Frequency band field name
+            
+    #     Returns:
+    #         numpy.ndarray: Frequency band data or None if not available
+    #     """
+    #     try:
+    #         if field in h5file['sentenceData']:
+    #             field_ref = h5file['sentenceData'][field][sentence_idx, 0]
+    #             if isinstance(field_ref, h5py.Reference):
+    #                 field_data = h5file[field_ref][()]
+    #                 field_data_arr = np.asarray(field_data)
+                    
+    #                 # Check if we have data for this word
+    #                 if word_idx < len(field_data_arr):
+    #                     word_data = field_data_arr[word_idx]
+    #                     return np.asarray(word_data).astype(np.float32)
+    #     except Exception as e:
+    #         print(f"Error getting {field} data for sentence {sentence_idx}, word {word_idx}: {e}")
+        
+    #     return None
     
     def extract_data_from_h5py(self, filepath):
         """
@@ -217,9 +341,12 @@ class ZucoDataExtractor:
                     return None
                 
                 # Get the number of sentences
-                sentence_count = h5file['sentenceData']['content'].shape[0]
-                
-                print(f"Found {sentence_count} sentences in {filename}")
+                try:
+                    sentence_count = h5file['sentenceData']['content'].shape[0]
+                    print(f"Found {sentence_count} sentences in {filename}")
+                except Exception as e:
+                    print(f"Error determining sentence count: {e}")
+                    return None
                 
                 # Iterate through each sentence
                 for sentence_idx in tqdm(range(sentence_count), desc=f"Processing {filename}"):
@@ -234,10 +361,13 @@ class ZucoDataExtractor:
                         }
                         
                         # Get sentence content
-                        content_ref = h5file['sentenceData']['content'][sentence_idx, 0]
-                        if isinstance(content_ref, h5py.Reference):
-                            content_data = h5file[content_ref]
-                            sentence_obj['text'] = self.load_matlab_string(content_data)
+                        try:
+                            content_ref = h5file['sentenceData']['content'][sentence_idx, 0]
+                            if isinstance(content_ref, h5py.Reference):
+                                content_data = h5file[content_ref]
+                                sentence_obj['text'] = self.load_matlab_string(content_data)
+                        except Exception as e:
+                            print(f"Error getting content for sentence {sentence_idx}: {e}")
                         
                         # Get raw EEG data for the whole sentence
                         raw_sentence_eeg = None
@@ -250,9 +380,14 @@ class ZucoDataExtractor:
                         except Exception as e:
                             print(f"Error processing raw EEG for sentence {sentence_idx}: {e}")
                         
-                        # Get words and word boundaries
+                        # Get words
                         words = self.get_words_from_sentence(h5file, sentence_idx)
-                        wordbounds = self.get_word_boundaries(h5file, sentence_idx)
+                        if not words:
+                            print(f"No words found for sentence {sentence_idx}")
+                            continue
+                        
+                        # Get word boundaries
+                        wordbounds = self.get_word_boundaries(h5file, sentence_idx, len(words))
                         
                         # Process each word in the sentence
                         for word_idx, word_text in enumerate(words):
@@ -293,20 +428,9 @@ class ZucoDataExtractor:
                                 for band_name, band_fields in self.freq_bands.items():
                                     word_obj['eeg_features'][band_name] = {}
                                     for field in band_fields:
-                                        try:
-                                            if field in h5file['sentenceData']:
-                                                field_ref = h5file['sentenceData'][field][sentence_idx, 0]
-                                                if isinstance(field_ref, h5py.Reference):
-                                                    band_data = h5file[field_ref][()]
-                                                    band_data_arr = np.asarray(band_data)
-                                                    
-                                                    # Check if we have data for this word
-                                                    if word_idx < len(band_data_arr):
-                                                        # Extract the word-specific band data
-                                                        word_data = band_data_arr[word_idx]
-                                                        word_obj['eeg_features'][band_name][field] = np.asarray(word_data).astype(np.float32)
-                                        except Exception as e:
-                                            print(f"Error processing {field} for sentence {sentence_idx}, word {word_idx}: {e}")
+                                        band_data = self.get_frequency_band_data(h5file, sentence_idx, word_idx, field)
+                                        if band_data is not None:
+                                            word_obj['eeg_features'][band_name][field] = band_data
                                 
                                 # Add the processed word to our sentence
                                 sentence_obj['words'].append(word_obj)
@@ -314,8 +438,9 @@ class ZucoDataExtractor:
                             except Exception as e:
                                 print(f"Error processing word {word_idx} in sentence {sentence_idx}: {e}")
                         
-                        # Add the processed sentence to our collection
-                        sentences_data.append(sentence_obj)
+                        # Add the processed sentence to our collection if it has words
+                        if sentence_obj['words']:
+                            sentences_data.append(sentence_obj)
                     
                     except Exception as e:
                         print(f"Error processing sentence {sentence_idx}: {e}")
@@ -354,7 +479,7 @@ class ZucoDataExtractor:
             filepath = os.path.join(self.data_dir, filename)
             processed_data = self.extract_data_from_h5py(filepath)
             
-            if processed_data:
+            if processed_data and processed_data['sentences']:
                 subject_id = processed_data['subject_id']
                 task = processed_data['task']
                 
@@ -371,6 +496,8 @@ class ZucoDataExtractor:
                 
                 # Add to all subject data
                 all_subject_data[key] = processed_data['sentences']
+            else:
+                print(f"No usable data extracted from {filename}")
         
         if not all_subject_data:
             print("No data was processed.")
