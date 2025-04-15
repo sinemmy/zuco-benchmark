@@ -1,0 +1,712 @@
+Processing files:  25%|█████████████████▌                                                    | 8/32 [08:16<24:05, 60.21s/it]Found 390 sentences in resultsYLS_TSR.mat
+      Error getting words for sentence 0: 'Dataset' object has no attribute 'keys'                         | 0/390 [00:00<?, ?it/s]
+Error getting words for sentence 1: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 2: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 3: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 4: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 5: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 6: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 7: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 8: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 9: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 10: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 11: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 12: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 13: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 14: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 15: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 16: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 17: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 18: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 19: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 20: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 21: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 22: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 23: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 24: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 25: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 26: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 27: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 28: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 29: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 30: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 31: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 32: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 33: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 34: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 35: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 36: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 37: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 38: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 39: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 40: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 41: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 42: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 43: 'Dataset' object has no attribute 'keys'
+Error getting words for sentence 44: 'Dataset' object has no attribute 'keys'
+      ^Processing resultsYLS_TSR.mat:  67%|████████████████████████████████████                  | 260/390 [00:35<00:17,  7.35it/s]
+Processing files:  25%|█████████████████▌                                                    | 8/32 [08:51<26:34, 66.44s/it]
+Traceback (most recent call last):
+  File "src/extract_zuco_data.py", line 485, in <module>
+    all_subject_data = extractor.process_all_files()
+  File "src/extract_zuco_data.py", line 355, in process_all_files
+    processed_data = self.extract_data_from_h5py(filepath)
+  File "src/extract_zuco_data.py", line 300, in extract_data_from_h5py
+    band_data = h5file[field_ref][()]
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "/Users/oshun/Documents/GitHub/zuco-benchmark/.venv/lib/python3.7/site-packages/h5py/_hl/group.py", line 258, in __getitem__
+    oid = h5r.dereference(name, self.id)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5r.pyx", line 80, in h5py.h5r.dereference
+  File "h5py/h5i.pyx", line 30, in h5py.h5i.wrap_identifier
+  File "h5py/h5i.pyx", line 40, in h5py.h5i.wrap_identifier
+  File "<frozen importlib._bootstrap>", line 416, in parent
+KeyboardInterrupt
+^C
+(.venv) oshun@Hyrule zuco-benchmark % python src/explore_zuco.py data/train/resultsYRP_TSR.mat YRP_TSR_mat_file_info.txt
+Exploring data/train/resultsYRP_TSR.mat, saving output to YRP_TSR_mat_file_info.txt
+Exploration complete. Results saved to YRP_TSR_mat_file_info.txt
+(.venv) oshun@Hyrule zuco-benchmark % python src/extract_zuco_data.py data/train/ --output-dir portable_data
+Found 32 .mat files
+Processing files:   0%|                                                                       | 0/32 [00:00<?, ?it/s]Found 390 sentences in resultsYAG_TSR.mat
+                                                                                                                    Warning: Not enough word boundaries for sentence 0. Got 4, need 105                           | 0/390 [00:00<?, ?it/s]
+                                                                                                                    Warning: Not enough word boundaries for sentence 1. Got 4, need 102                   | 1/390 [00:00<01:10,  5.51it/s]
+                                                                                                                    Warning: Not enough word boundaries for sentence 2. Got 4, need 105                   | 2/390 [00:00<01:03,  6.08it/s]
+                                                                                                                    Warning: Not enough word boundaries for sentence 3. Got 4, need 105                   | 3/390 [00:00<01:03,  6.09it/s]
+                                                                                                                    Warning: Not enough word boundaries for sentence 4. Got 4, need 105                   | 4/390 [00:00<01:03,  6.05it/s]
+                                                                                                                    Warning: Not enough word boundaries for sentence 5. Got 4, need 105                   | 5/390 [00:00<01:06,  5.77it/s]
+                                                                                                                    Warning: Not enough word boundaries for sentence 6. Got 4, need 105                   | 6/390 [00:01<01:06,  5.77it/s]
+                                                                                                                    Warning: Not enough word boundaries for sentence 7. Got 4, need 105                   | 7/390 [00:01<01:04,  5.95it/s]
+                                                                                                                    Warning: Not enough word boundaries for sentence 8. Got 4, need 105                   | 8/390 [00:01<01:04,  5.94it/s]
+                                                                                                                    Warning: Not enough word boundaries for sentence 9. Got 4, need 105                   | 9/390 [00:01<01:03,  6.00it/s]
+                                                                                                                    Warning: Not enough word boundaries for sentence 10. Got 4, need 105                 | 10/390 [00:01<01:03,  6.01it/s]
+                                                                                                                    Warning: Not enough word boundaries for sentence 11. Got 4, need 105                 | 11/390 [00:01<01:02,  6.02it/s]
+                                                                                                                    Warning: Not enough word boundaries for sentence 12. Got 4, need 105                 | 12/390 [00:02<01:02,  6.01it/s]
+                                                                                                                    Warning: Not enough word boundaries for sentence 13. Got 4, need 105                 | 13/390 [00:02<01:01,  6.10it/s]
+                                                                                                                    Warning: Not enough word boundaries for sentence 14. Got 4, need 105                 | 14/390 [00:02<01:03,  5.93it/s]
+                                                                                                                    Warning: Not enough word boundaries for sentence 15. Got 4, need 105                 | 15/390 [00:02<01:02,  6.04it/s]
+Processing resultsYAG_TSR.mat:   4%|█▊                                              | 15/390 [00:02<01:04,  5.78it/s]
+Processing files:   0%|                                                                       | 0/32 [00:02<?, ?it/s]
+Traceback (most recent call last):
+  File "src/extract_zuco_data.py", line 555, in <module>
+    all_subject_data = extractor.process_all_files()
+  File "src/extract_zuco_data.py", line 423, in process_all_files
+    processed_data = self.extract_data_from_h5py(filepath)
+  File "src/extract_zuco_data.py", line 374, in extract_data_from_h5py
+    band_data = self.get_frequency_band_data(h5file, sentence_idx, word_idx, field)
+  File "src/extract_zuco_data.py", line 245, in get_frequency_band_data
+    field_ref = h5file['sentenceData'][field][sentence_idx, 0]
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "/Users/oshun/Documents/GitHub/zuco-benchmark/.venv/lib/python3.7/site-packages/h5py/_hl/dataset.py", line 538, in __getitem__
+    if self.shape == ():
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "/Users/oshun/Documents/GitHub/zuco-benchmark/.venv/lib/python3.7/site-packages/h5py/_hl/dataset.py", line 287, in shape
+    return self.id.shape
+KeyboardInterrupt
+(.venv) oshun@Hyrule zuco-benchmark % 
+(.venv) oshun@Hyrule zuco-benchmark % 
+(.venv) oshun@Hyrule zuco-benchmark % python src/extract_zuco_data.py data/train/ --output-dir portable_data
+Found 32 .mat files
+Processing files:   0%|                                                                       | 0/32 [00:00<?, ?it/s]Found 390 sentences in resultsYAG_TSR.mat
+Processing resultsYAG_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [01:03<00:00,  6.15it/s]
+Saved 390 sentences with 40842 words to portable_data/YAG_TSR.pkl██████████████████| 390/390 [01:03<00:00,  6.19it/s]
+Processing files:   3%|█▉                                                             | 1/32 [01:04<33:09, 64.19s/it]Found 390 sentences in resultsYSD_TSR.mat
+Processing resultsYSD_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [01:01<00:00,  6.31it/s]
+Saved 390 sentences with 40608 words to portable_data/YSD_TSR.pkl██████████████████| 390/390 [01:01<00:00,  6.40it/s]
+Processing files:   6%|███▉                                                           | 2/32 [02:06<31:37, 63.25s/it]Found 349 sentences in resultsYFS_NR.mat
+Processing resultsYFS_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:56<00:00,  6.19it/s]
+Saved 349 sentences with 36396 words to portable_data/YFS_NR.pkl███████████████████| 349/349 [00:56<00:00,  6.31it/s]
+Processing files:   9%|█████▉                                                         | 3/32 [03:03<29:12, 60.42s/it]Found 390 sentences in resultsYRP_TSR.mat
+Processing resultsYRP_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [01:04<00:00,  6.05it/s]
+Saved 390 sentences with 40899 words to portable_data/YRP_TSR.pkl██████████████████| 390/390 [01:04<00:00,  6.19it/s]
+Processing files:  12%|███████▉                                                       | 4/32 [04:09<29:06, 62.37s/it]Found 349 sentences in resultsYRK_NR.mat
+Processing resultsYRK_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:56<00:00,  6.17it/s]
+Saved 349 sentences with 36350 words to portable_data/YRK_NR.pkl███████████████████| 349/349 [00:56<00:00,  6.19it/s]
+Processing files:  16%|█████████▊                                                     | 5/32 [05:06<27:17, 60.64s/it]Found 390 sentences in resultsYMD_TSR.mat
+Processing resultsYMD_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [01:04<00:00,  6.07it/s]
+Saved 390 sentences with 40797 words to portable_data/YMD_TSR.pkl██████████████████| 390/390 [01:04<00:00,  6.09it/s]
+Processing files:  19%|███████████▊                                                   | 6/32 [06:12<26:58, 62.25s/it]Found 390 sentences in resultsYSL_TSR.mat
+Processing resultsYSL_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [01:03<00:00,  6.14it/s]
+Saved 390 sentences with 40899 words to portable_data/YSL_TSR.pkl██████████████████| 390/390 [01:03<00:00,  6.25it/s]
+Processing files:  22%|█████████████▊                                                 | 7/32 [07:16<26:16, 63.05s/it]Found 349 sentences in resultsYTL_NR.mat
+Processing resultsYTL_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:57<00:00,  6.11it/s]
+Saved 349 sentences with 36502 words to portable_data/YTL_NR.pkl███████████████████| 349/349 [00:57<00:00,  6.26it/s]
+Processing files:  25%|███████████████▊                                               | 8/32 [08:14<24:33, 61.39s/it]Found 390 sentences in resultsYLS_TSR.mat
+                                                                                                                    Error processing word 0 in sentence 0: index 1 is out of bounds for axis 1 with size 1        | 0/390 [00:00<?, ?it/s]
+Error processing word 0 in sentence 1: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 2: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 3: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 4: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 5: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 6: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 7: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 8: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 9: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 10: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 11: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 12: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 13: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 14: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 15: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 16: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 17: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 18: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 19: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 20: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 21: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 22: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 23: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 24: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 25: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 26: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 27: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 28: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 29: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 30: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 31: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 32: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 33: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 34: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 35: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 36: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 37: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 38: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 39: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 40: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 41: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 42: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 43: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 44: index 1 is out of bounds for axis 1 with size 1
+Processing resultsYLS_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [00:55<00:00,  7.09it/s]
+Saved 345 sentences with 35994 words to portable_data/YLS_TSR.pkl██████████████████| 390/390 [00:55<00:00,  6.43it/s]
+Processing files:  28%|█████████████████▋                                             | 9/32 [09:10<22:50, 59.59s/it]Found 390 sentences in resultsYTL_TSR.mat
+Processing resultsYTL_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [01:01<00:00,  6.37it/s]
+Saved 390 sentences with 40611 words to portable_data/YTL_TSR.pkl██████████████████| 390/390 [01:01<00:00,  6.56it/s]
+Processing files:  31%|███████████████████▍                                          | 10/32 [10:12<22:10, 60.49s/it]Found 349 sentences in resultsYLS_NR.mat
+                                                                                                                    Error processing word 0 in sentence 0: index 1 is out of bounds for axis 1 with size 1        | 0/349 [00:00<?, ?it/s]
+Error processing word 0 in sentence 1: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 2: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 3: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 4: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 5: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 6: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 7: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 8: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 9: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 10: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 11: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 12: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 13: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 14: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 15: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 16: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 17: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 18: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 19: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 20: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 21: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 22: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 23: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 24: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 25: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 26: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 27: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 28: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 29: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 30: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 31: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 32: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 33: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 34: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 35: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 36: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 37: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 38: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 39: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 40: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 41: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 42: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 43: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 44: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 45: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 46: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 47: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 48: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 49: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 50: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 51: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 52: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 53: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 54: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 55: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 56: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 57: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 58: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 59: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 60: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 61: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 62: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 63: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 64: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 65: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 66: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 67: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 68: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 69: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 70: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 71: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 72: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 73: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 74: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 75: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 76: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 77: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 78: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 79: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 80: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 81: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 82: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 83: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 84: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 85: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 86: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 87: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 88: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 89: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 90: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 91: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 92: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 93: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 94: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 95: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 96: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 97: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 98: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 99: index 1 is out of bounds for axis 1 with size 1
+Processing resultsYLS_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:39<00:00,  8.85it/s]
+Saved 249 sentences with 25987 words to portable_data/YLS_NR.pkl███████████████████| 349/349 [00:39<00:00,  6.33it/s]
+Processing files:  34%|█████████████████████▎                                        | 11/32 [10:52<18:57, 54.18s/it]Found 390 sentences in resultsYFS_TSR.mat
+Processing resultsYFS_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [01:02<00:00,  6.28it/s]
+Saved 390 sentences with 40398 words to portable_data/YFS_TSR.pkl██████████████████| 390/390 [01:02<00:00,  6.53it/s]
+Processing files:  38%|███████████████████████▎                                      | 12/32 [11:55<18:56, 56.82s/it]Found 390 sentences in resultsYFR_TSR.mat
+                                                                                                                    Error processing word 0 in sentence 45: index 1 is out of bounds for axis 1 with size 145/390 [00:07<00:55,  6.21it/s]
+Error processing word 0 in sentence 46: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 47: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 48: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 49: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 50: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 51: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 52: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 53: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 54: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 55: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 56: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 57: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 58: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 59: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 60: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 61: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 62: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 63: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 64: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 65: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 66: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 67: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 68: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 69: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 70: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 71: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 72: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 73: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 74: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 75: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 76: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 77: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 78: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 79: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 80: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 81: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 82: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 83: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 84: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 85: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 86: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 87: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 88: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 89: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 90: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 91: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 92: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 93: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 94: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 95: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 96: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 97: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 98: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 99: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 100: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 101: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 102: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 103: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 104: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 105: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 106: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 107: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 108: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 109: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 110: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 111: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 112: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 113: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 114: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 115: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 116: index 1 is out of bounds for axis 1 with size 1
+                                                                                                                    Error processing word 0 in sentence 171: index 1 is out of bounds for axis 1 with size 11/390 [00:16<00:42,  5.10it/s]
+Error processing word 0 in sentence 172: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 173: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 174: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 175: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 176: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 177: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 178: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 179: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 180: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 181: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 182: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 183: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 184: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 185: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 186: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 187: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 188: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 189: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 190: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 191: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 192: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 193: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 194: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 195: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 196: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 197: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 198: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 199: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 200: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 201: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 202: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 203: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 204: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 205: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 206: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 207: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 208: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 209: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 210: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 211: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 212: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 213: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 214: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 215: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 216: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 217: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 218: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 219: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 220: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 221: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 222: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 223: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 224: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 225: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 226: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 227: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 228: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 229: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 230: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 231: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 232: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 233: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 234: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 235: index 1 is out of bounds for axis 1 with size 1
+Processing resultsYFR_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [00:40<00:00,  9.57it/s]
+Saved 253 sentences with 26356 words to portable_data/YFR_TSR.pkl██████████████████| 390/390 [00:40<00:00,  6.42it/s]
+Processing files:  41%|█████████████████████████▏                                    | 13/32 [12:36<16:29, 52.10s/it]Found 349 sentences in resultsYDG_NR.mat
+Processing resultsYDG_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:55<00:00,  6.33it/s]
+Saved 349 sentences with 36381 words to portable_data/YDG_NR.pkl███████████████████| 349/349 [00:55<00:00,  6.31it/s]
+Processing files:  44%|███████████████████████████▏                                  | 14/32 [13:32<15:57, 53.21s/it]Found 349 sentences in resultsYAG_NR.mat
+Processing resultsYAG_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:55<00:00,  6.25it/s]
+Saved 349 sentences with 36573 words to portable_data/YAG_NR.pkl███████████████████| 349/349 [00:55<00:00,  6.21it/s]
+Processing files:  47%|█████████████████████████████                                 | 15/32 [14:29<15:24, 54.39s/it]Found 349 sentences in resultsYAK_NR.mat
+Processing resultsYAK_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:52<00:00,  6.59it/s]
+Saved 349 sentences with 35136 words to portable_data/YAK_NR.pkl███████████████████| 349/349 [00:52<00:00,  6.35it/s]
+Processing files:  50%|███████████████████████████████                               | 16/32 [15:23<14:26, 54.15s/it]Found 349 sentences in resultsYFR_NR.mat
+Processing resultsYFR_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:55<00:00,  6.30it/s]
+Saved 349 sentences with 36450 words to portable_data/YFR_NR.pkl███████████████████| 349/349 [00:55<00:00,  6.32it/s]
+Processing files:  53%|████████████████████████████████▉                             | 17/32 [16:19<13:40, 54.72s/it]Found 349 sentences in resultsYRP_NR.mat
+Processing resultsYRP_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:56<00:00,  6.13it/s]
+Saved 349 sentences with 36532 words to portable_data/YRP_NR.pkl███████████████████| 349/349 [00:56<00:00,  6.38it/s]
+Processing files:  56%|██████████████████████████████████▉                           | 18/32 [17:17<13:02, 55.88s/it]Found 390 sentences in resultsYHS_TSR.mat
+Processing resultsYHS_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [01:00<00:00,  6.48it/s]
+Saved 390 sentences with 40014 words to portable_data/YHS_TSR.pkl██████████████████| 390/390 [01:00<00:00,  6.58it/s]
+Processing files:  59%|████████████████████████████████████▊                         | 19/32 [18:18<12:26, 57.40s/it]Found 390 sentences in resultsYIS_TSR.mat
+Processing resultsYIS_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [01:00<00:00,  6.44it/s]
+Saved 390 sentences with 40668 words to portable_data/YIS_TSR.pkl██████████████████| 390/390 [01:00<00:00,  6.31it/s]
+Processing files:  62%|██████████████████████████████████████▊                       | 20/32 [19:20<11:42, 58.57s/it]Found 349 sentences in resultsYHS_NR.mat
+Processing resultsYHS_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:53<00:00,  6.46it/s]
+Saved 349 sentences with 35982 words to portable_data/YHS_NR.pkl███████████████████| 349/349 [00:53<00:00,  6.56it/s]
+Processing files:  66%|████████████████████████████████████████▋                     | 21/32 [20:14<10:31, 57.38s/it]Found 390 sentences in resultsYRK_TSR.mat
+Processing resultsYRK_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [01:03<00:00,  6.13it/s]
+Saved 390 sentences with 40639 words to portable_data/YRK_TSR.pkl██████████████████| 390/390 [01:03<00:00,  6.33it/s]
+Processing files:  69%|██████████████████████████████████████████▋                   | 22/32 [21:19<09:55, 59.51s/it]Found 349 sentences in resultsYIS_NR.mat
+Processing resultsYIS_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:55<00:00,  6.30it/s]
+Saved 349 sentences with 36585 words to portable_data/YIS_NR.pkl███████████████████| 349/349 [00:55<00:00,  6.31it/s]
+Processing files:  72%|████████████████████████████████████████████▌                 | 23/32 [22:15<08:46, 58.46s/it]Found 349 sentences in resultsYSD_NR.mat
+Processing resultsYSD_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:56<00:00,  6.20it/s]
+Saved 349 sentences with 36570 words to portable_data/YSD_NR.pkl███████████████████| 349/349 [00:56<00:00,  6.33it/s]
+Processing files:  75%|██████████████████████████████████████████████▌               | 24/32 [23:12<07:44, 58.02s/it]Found 349 sentences in resultsYMD_NR.mat
+Processing resultsYMD_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:56<00:00,  6.16it/s]
+Saved 349 sentences with 36489 words to portable_data/YMD_NR.pkl███████████████████| 349/349 [00:56<00:00,  6.19it/s]
+Processing files:  78%|████████████████████████████████████████████████▍             | 25/32 [24:10<06:47, 58.18s/it]Found 390 sentences in resultsYAC_TSR.mat
+                                                                                                                    Error processing word 0 in sentence 171: index 1 is out of bounds for axis 1 with size 11/390 [00:27<00:35,  6.09it/s]
+Error processing word 0 in sentence 172: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 173: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 174: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 175: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 176: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 177: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 178: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 179: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 180: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 181: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 182: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 183: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 184: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 185: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 186: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 187: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 188: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 189: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 190: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 191: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 192: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 193: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 194: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 195: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 196: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 197: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 198: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 199: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 200: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 201: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 202: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 203: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 204: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 205: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 206: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 207: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 208: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 209: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 210: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 211: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 212: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 213: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 214: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 215: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 216: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 217: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 218: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 219: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 220: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 221: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 222: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 223: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 224: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 225: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 226: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 227: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 228: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 229: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 230: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 231: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 232: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 233: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 234: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 235: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 236: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 237: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 238: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 239: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 240: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 241: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 242: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 243: index 1 is out of bounds for axis 1 with size 1
+                                                                                                                    Error processing word 0 in sentence 244: index 1 is out of bounds for axis 1 with size 1/390 [00:28<00:00, 155.79it/s]
+Error processing word 0 in sentence 245: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 246: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 247: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 248: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 249: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 250: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 251: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 252: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 253: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 254: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 255: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 256: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 257: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 258: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 259: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 260: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 261: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 262: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 263: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 264: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 265: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 266: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 267: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 268: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 269: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 270: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 271: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 272: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 273: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 274: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 275: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 276: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 277: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 278: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 279: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 280: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 281: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 282: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 283: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 284: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 285: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 286: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 287: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 288: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 289: index 1 is out of bounds for axis 1 with size 1
+Processing resultsYAC_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [00:44<00:00,  8.83it/s]
+Saved 271 sentences with 28314 words to portable_data/YAC_TSR.pkl██████████████████| 390/390 [00:44<00:00,  6.24it/s]
+Processing files:  81%|██████████████████████████████████████████████████▍           | 26/32 [24:55<05:24, 54.16s/it]Found 390 sentences in resultsYDR_TSR.mat
+Processing resultsYDR_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [01:01<00:00,  6.33it/s]
+Saved 390 sentences with 40215 words to portable_data/YDR_TSR.pkl██████████████████| 390/390 [01:01<00:00,  6.90it/s]
+Processing files:  84%|████████████████████████████████████████████████████▎         | 27/32 [25:57<04:43, 56.62s/it]Found 390 sentences in resultsYDG_TSR.mat
+Processing resultsYDG_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [01:03<00:00,  6.15it/s]
+Saved 390 sentences with 40497 words to portable_data/YDG_TSR.pkl██████████████████| 390/390 [01:03<00:00,  6.34it/s]
+Processing files:  88%|██████████████████████████████████████████████████████▎       | 28/32 [27:02<03:55, 58.89s/it]Found 349 sentences in resultsYSL_NR.mat
+Processing resultsYSL_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:57<00:00,  6.06it/s]
+Saved 349 sentences with 36630 words to portable_data/YSL_NR.pkl███████████████████| 349/349 [00:57<00:00,  6.13it/s]
+Processing files:  91%|████████████████████████████████████████████████████████▏     | 29/32 [28:00<02:56, 58.72s/it]Found 390 sentences in resultsYAK_TSR.mat
+Processing resultsYAK_TSR.mat: 100%|███████████████████████████████████████████████| 390/390 [01:06<00:00,  5.89it/s]
+Saved 390 sentences with 40851 words to portable_data/YAK_TSR.pkl██████████████████| 390/390 [01:06<00:00,  6.12it/s]
+Processing files:  94%|██████████████████████████████████████████████████████████▏   | 30/32 [29:07<02:02, 61.24s/it]Found 349 sentences in resultsYDR_NR.mat
+Processing resultsYDR_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:56<00:00,  6.16it/s]
+Saved 349 sentences with 36186 words to portable_data/YDR_NR.pkl███████████████████| 349/349 [00:56<00:00,  6.29it/s]
+Processing files:  97%|████████████████████████████████████████████████████████████  | 31/32 [30:04<01:00, 60.08s/it]Found 349 sentences in resultsYAC_NR.mat
+                                                                                                                    Error processing word 0 in sentence 201: index 1 is out of bounds for axis 1 with size 11/349 [00:33<00:23,  6.27it/s]
+Error processing word 0 in sentence 202: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 203: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 204: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 205: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 206: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 207: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 208: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 209: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 210: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 211: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 212: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 213: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 214: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 215: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 216: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 217: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 218: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 219: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 220: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 221: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 222: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 223: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 224: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 225: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 226: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 227: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 228: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 229: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 230: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 231: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 232: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 233: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 234: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 235: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 236: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 237: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 238: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 239: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 240: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 241: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 242: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 243: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 244: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 245: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 246: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 247: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 248: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 249: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 250: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 251: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 252: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 253: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 254: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 255: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 256: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 257: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 258: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 259: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 260: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 261: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 262: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 263: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 264: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 265: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 266: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 267: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 268: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 269: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 270: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 271: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 272: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 273: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 274: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 275: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 276: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 277: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 278: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 279: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 280: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 281: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 282: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 283: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 284: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 285: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 286: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 287: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 288: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 289: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 290: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 291: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 292: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 293: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 294: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 295: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 296: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 297: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 298: index 1 is out of bounds for axis 1 with size 1
+Error processing word 0 in sentence 299: index 1 is out of bounds for axis 1 with size 1
+Processing resultsYAC_NR.mat: 100%|████████████████████████████████████████████████| 349/349 [00:40<00:00,  8.53it/s]
+Saved 250 sentences with 26154 words to portable_data/YAC_NR.pkl██████████████████▊| 348/349 [00:40<00:00,  9.36it/s]
+Processing files: 100%|██████████████████████████████████████████████████████████████| 32/32 [30:46<00:00, 57.70s/it]
+Saved data for 32 subject-task combinations to portable_data/all_data.pkl
+Saved metadata to portable_data/metadata.json
