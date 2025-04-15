@@ -27,6 +27,8 @@ src/portable_zucco_data
 src/portable_zucco_data/*
 
 portable_data
+portable_data*
+portable_data*/*
 portable_data/*
 portable_data_2
 portable_data_2/*
