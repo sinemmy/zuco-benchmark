@@ -1,44 +1,4 @@
-(.venv) oshun@Hyrule zuco-benchmark % python src/extract_zuco_data.py data/train/ --output-dir portable_data
-Found 32 .mat files
-Processing files:   0%|                                                                       | 0/32 [00:00<?, ?it/s]Found 390 sentences in resultsYAG_TSR.mat
-                                                                                                                    Warning: Not enough word boundaries for sentence 0. Got 4, need 105                           | 0/390 [00:00<?, ?it/s]
-                                                                                                                    Warning: Not enough word boundaries for sentence 1. Got 4, need 102                   | 1/390 [00:00<01:10,  5.51it/s]
-                                                                                                                    Warning: Not enough word boundaries for sentence 2. Got 4, need 105                   | 2/390 [00:00<01:03,  6.08it/s]
-                                                                                                                    Warning: Not enough word boundaries for sentence 3. Got 4, need 105                   | 3/390 [00:00<01:03,  6.09it/s]
-                                                                                                                    Warning: Not enough word boundaries for sentence 4. Got 4, need 105                   | 4/390 [00:00<01:03,  6.05it/s]
-                                                                                                                    Warning: Not enough word boundaries for sentence 5. Got 4, need 105                   | 5/390 [00:00<01:06,  5.77it/s]
-                                                                                                                    Warning: Not enough word boundaries for sentence 6. Got 4, need 105                   | 6/390 [00:01<01:06,  5.77it/s]
-                                                                                                                    Warning: Not enough word boundaries for sentence 7. Got 4, need 105                   | 7/390 [00:01<01:04,  5.95it/s]
-                                                                                                                    Warning: Not enough word boundaries for sentence 8. Got 4, need 105                   | 8/390 [00:01<01:04,  5.94it/s]
-                                                                                                                    Warning: Not enough word boundaries for sentence 9. Got 4, need 105                   | 9/390 [00:01<01:03,  6.00it/s]
-                                                                                                                    Warning: Not enough word boundaries for sentence 10. Got 4, need 105                 | 10/390 [00:01<01:03,  6.01it/s]
-                                                                                                                    Warning: Not enough word boundaries for sentence 11. Got 4, need 105                 | 11/390 [00:01<01:02,  6.02it/s]
-                                                                                                                    Warning: Not enough word boundaries for sentence 12. Got 4, need 105                 | 12/390 [00:02<01:02,  6.01it/s]
-                                                                                                                    Warning: Not enough word boundaries for sentence 13. Got 4, need 105                 | 13/390 [00:02<01:01,  6.10it/s]
-                                                                                                                    Warning: Not enough word boundaries for sentence 14. Got 4, need 105                 | 14/390 [00:02<01:03,  5.93it/s]
-                                                                                                                    Warning: Not enough word boundaries for sentence 15. Got 4, need 105                 | 15/390 [00:02<01:02,  6.04it/s]
-Processing resultsYAG_TSR.mat:   4%|█▊                                              | 15/390 [00:02<01:04,  5.78it/s]
-Processing files:   0%|                                                                       | 0/32 [00:02<?, ?it/s]
-Traceback (most recent call last):
-  File "src/extract_zuco_data.py", line 555, in <module>
-    all_subject_data = extractor.process_all_files()
-  File "src/extract_zuco_data.py", line 423, in process_all_files
-    processed_data = self.extract_data_from_h5py(filepath)
-  File "src/extract_zuco_data.py", line 374, in extract_data_from_h5py
-    band_data = self.get_frequency_band_data(h5file, sentence_idx, word_idx, field)
-  File "src/extract_zuco_data.py", line 245, in get_frequency_band_data
-    field_ref = h5file['sentenceData'][field][sentence_idx, 0]
-  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
-  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
-  File "/Users/oshun/Documents/GitHub/zuco-benchmark/.venv/lib/python3.7/site-packages/h5py/_hl/dataset.py", line 538, in __getitem__
-    if self.shape == ():
-  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
-  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
-  File "/Users/oshun/Documents/GitHub/zuco-benchmark/.venv/lib/python3.7/site-packages/h5py/_hl/dataset.py", line 287, in shape
-    return self.id.shape
-KeyboardInterrupt
-(.venv) oshun@Hyrule zuco-benchmark % 
-(.venv) oshun@Hyrule zuco-benchmark % 
+
 (.venv) oshun@Hyrule zuco-benchmark % python src/extract_zuco_data.py data/train/ --output-dir portable_data
 Found 32 .mat files
 Processing files:   0%|                                                                       | 0/32 [00:00<?, ?it/s]Found 390 sentences in resultsYAG_TSR.mat
