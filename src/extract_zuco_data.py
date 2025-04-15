@@ -230,7 +230,7 @@ class ZucoDataExtractor:
 
     def get_frequency_band_data(self, h5file, sentence_idx, word_idx, field):
         """
-        Get frequency band data for a specific word.
+        Get frequency band data for a specific word, with improved error handling.
         
         Args:
             h5file: h5py file object
@@ -248,73 +248,46 @@ class ZucoDataExtractor:
                     field_data = h5file[field_ref][()]
                     field_data_arr = np.asarray(field_data)
                     
-                    # Check if we have data for this word
-                    if word_idx < len(field_data_arr):
-                        word_data = field_data_arr[word_idx]
-                        return np.asarray(word_data).astype(np.float32)
+                    # Different handling based on data shape
+                    if len(field_data_arr.shape) == 1:
+                        # If it's a 1D array, it might be a single value per electrode
+                        if word_idx == 0:  # Only use for the first word
+                            return field_data_arr.astype(np.float32)
+                        return None
+                    elif len(field_data_arr.shape) == 2:
+                        # If 2D array check if word_idx is valid
+                        if word_idx < field_data_arr.shape[0]:
+                            word_data = field_data_arr[word_idx]
+                            return word_data.astype(np.float32)
+                        else:
+                            # If the word index is out of bounds, might be a transposed array
+                            if field_data_arr.shape[1] > word_idx:
+                                word_data = field_data_arr[:, word_idx]
+                                return word_data.astype(np.float32)
+                            else:
+                                print(f"Warning: Word index {word_idx} out of bounds for {field} in sentence {sentence_idx}. Shape: {field_data_arr.shape}")
+                    else:
+                        # More complex structure, try the first dimension
+                        if field_data_arr.shape[0] > word_idx:
+                            try:
+                                # Try to extract data for this word
+                                word_data = field_data_arr[word_idx]
+                                return np.asarray(word_data).astype(np.float32)
+                            except Exception as e:
+                                print(f"Error extracting {field} data for word {word_idx} in sentence {sentence_idx}: {e}")
+                                # Return the whole array if individual access fails
+                                return field_data_arr.astype(np.float32)
+                        else:
+                            print(f"Warning: Word index {word_idx} out of bounds for {field} in sentence {sentence_idx}. Shape: {field_data_arr.shape}")
+            else:
+                # Only print once per sentence to avoid spam
+                if word_idx == 0:
+                    print(f"Field {field} not found in sentence {sentence_idx}")
         except Exception as e:
-            # Silently fail - we'll just skip this feature
             print(f"Error getting {field} data for sentence {sentence_idx}, word {word_idx}: {e}")
         
         return None
 
-    # def get_word_boundaries(self, h5file, sentence_idx, word_count):
-    #     """
-    #     Get word boundaries for a sentence.
-        
-    #     Args:
-    #         h5file: h5py file object
-    #         sentence_idx: Index of the sentence
-    #         word_count: Number of words in the sentence
-            
-    #     Returns:
-    #         numpy.ndarray: Word boundaries array or None if not available
-    #     """
-    #     try:
-    #         if 'wordbounds' in h5file['sentenceData']:
-    #             wordbounds_ref = h5file['sentenceData']['wordbounds'][sentence_idx, 0]
-    #             if isinstance(wordbounds_ref, h5py.Reference):
-    #                 wordbounds_data = h5file[wordbounds_ref][()]
-    #                 wordbounds = np.asarray(wordbounds_data)
-                    
-    #                 # Ensure we have boundaries for all words
-    #                 if len(wordbounds) >= word_count:
-    #                     return wordbounds
-    #                 else:
-    #                     print(f"Warning: Not enough word boundaries for sentence {sentence_idx}. Got {len(wordbounds)}, need {word_count}")
-    #     except Exception as e:
-    #         print(f"Error getting word boundaries for sentence {sentence_idx}: {e}")
-        
-    #     return None
-    
-    # def get_frequency_band_data(self, h5file, sentence_idx, word_idx, field):
-    #     """
-    #     Get frequency band data for a specific word.
-        
-    #     Args:
-    #         h5file: h5py file object
-    #         sentence_idx: Index of the sentence
-    #         word_idx: Index of the word
-    #         field: Frequency band field name
-            
-    #     Returns:
-    #         numpy.ndarray: Frequency band data or None if not available
-    #     """
-    #     try:
-    #         if field in h5file['sentenceData']:
-    #             field_ref = h5file['sentenceData'][field][sentence_idx, 0]
-    #             if isinstance(field_ref, h5py.Reference):
-    #                 field_data = h5file[field_ref][()]
-    #                 field_data_arr = np.asarray(field_data)
-                    
-    #                 # Check if we have data for this word
-    #                 if word_idx < len(field_data_arr):
-    #                     word_data = field_data_arr[word_idx]
-    #                     return np.asarray(word_data).astype(np.float32)
-    #     except Exception as e:
-    #         print(f"Error getting {field} data for sentence {sentence_idx}, word {word_idx}: {e}")
-        
-    #     return None
     
     def extract_data_from_h5py(self, filepath):
         """
